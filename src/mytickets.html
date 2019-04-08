@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Blockchain Ticketing</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css" />
+		
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="logo"><strong>Blockchain</strong>Ticketing</a>
+				<nav id="nav">
+					<a href="hostevent.html">Host Events</a>
+					<a href="mytickets.html">My Tickets</a>
+				</nav>
+				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+			</div>
+		</header>
+		
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<header>
+					<h1>Welcome to Blockchain Ticketing</h1>
+				</header>
+				
+				<div class="flex">
+					<div>
+						<a href="index.html">
+						<img src="images/manage.png" alt="manage your events" />
+						<h3>Open Events</h3>
+						<p></p>
+						</a>
+					</div>
+					
+					<div>
+						<a href="hostevent.html">
+						<img src="images/host.png" alt="host an event" />
+						<h3>Host Events</h3>
+						<p></p>
+						</a>
+					</div>
+
+					<div>
+						<a href="mytickets.html">
+						<img src="images/ticpic.png" alt="ticket picture" />
+						<h3>View Your Tickets</h3>
+						<p></p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Main Content -->
+		<section class="wrapper align-center">
+			<div class="inner">
+				<!-- Show when loading, or webpage is not ready-->
+				<div id="loader">
+					<p class="text-center">Refresh page shortly to see your ticket updates</p>
+				</div>
+				<!-- Show when content is ready-->
+				<div id="content">
+					<h2 style="text-align:center;">My Tickets</h2>
+					<h3 id="accountAddress" class="text-center"></h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Event</th>
+								<th scope="col">Location</th>
+								<th scope="col">Price (in Wei)</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody id="myTickets">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Copyright -->
+		<div id="footer">
+				<div class="copyright">
+					&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+				</div>
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/web3.min.js"></script>
+		<script src="js/truffle-contract.js"></script>
+		<script src="js/mytickets.js"></script>
+	</body>
+</html>

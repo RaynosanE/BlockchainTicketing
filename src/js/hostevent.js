@@ -85,9 +85,10 @@ App = {
 		var location = $('#location').val();
 		var numAvail = $('#numAvail').val();
 		var price = $('#price').val();
+		var eventDate = $('#eventDate').val();
 		
 		App.contracts.Ticketing.deployed().then(function(instance) {
-			return instance.createEvent(eventName, location, numAvail, price, {from: App.account});
+			return instance.createEvent(eventName, location, numAvail, price, eventDate, {from: App.account});
 		}).then(function(result) {
 			$("#content").hide();
 			$("#loader").show();

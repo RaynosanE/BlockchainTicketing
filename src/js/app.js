@@ -6,7 +6,7 @@ App = {
 	init: function() {
 		return App.initWeb3();
 	},
-
+	//Initializing web3 instance
 	initWeb3: async function() {
 		if (typeof web3 !== 'undefined') {
 		  // If a web3 instance is already provided by Meta Mask.
@@ -19,7 +19,7 @@ App = {
 		}
 		return App.initContract();
 	},
-
+	//Initializing Ticketing contract
 	initContract: function() {
 		$.getJSON("Ticketing.json", function(ticketing) {
 			// Instantiate a new truffle contract from the artifact
@@ -31,6 +31,7 @@ App = {
 		});
 	},
 	
+	//Render function; what is to be displayed on page
 	render: function() {
 		var ticketingInstance;
 		var loader=$("#loader");
@@ -80,7 +81,7 @@ App = {
 		});
 	},
 	
-	//Create event
+	//Create event function
 	hostEvent: function() {
 		var eventName = $('#eventName').val();
 		var location = $('#location').val();
@@ -97,6 +98,7 @@ App = {
 		});
 	},
 	
+	//Buying ticket function
 	buy: function(eventName, price) {
 		App.contracts.Ticketing.deployed().then(function(instance) {
 			return instance.buy((eventName), {from: App.account, value: price});

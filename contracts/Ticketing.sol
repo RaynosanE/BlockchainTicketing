@@ -11,6 +11,7 @@ contract Ticketing {
         uint price;
         bool isSellable;
         uint numEvent;
+        string eventDate;
     }
     
     struct Event {
@@ -19,18 +20,15 @@ contract Ticketing {
         string location;
         uint price;
         uint numAvail;
+        string eventDate;
     }
     
     mapping (uint => Ticket) public tickets;
     uint public ticketCount;
-    
-    event myTicketShow (bool success);
-    
+
     mapping (uint => Event) public events;
     uint public eventCount;
-    
-    string[] locations = ["Toronto", "Montreal", "Calgary", "Ottawa", "Halifax", "New York", "Boston"];
-    
+   
     mapping (uint => Ticket) public ownedTickets;
     uint public numMyTickets;
     
@@ -41,23 +39,22 @@ contract Ticketing {
                 ownedTickets[numMyTickets] = tickets[i];
             }
         }
-        emit myTicketShow(true);
     }
     
-    function addTicket(address payable _ticketOwner, string memory _eventName, string memory _location, uint _price, uint _eventCount) public {
+    function addTicket(address payable _ticketOwner, string memory _eventName, string memory _location, uint _price, uint _eventCount, string memory _eventDate) public {
         ticketCount++;
-        tickets[ticketCount] = Ticket(_ticketOwner, _eventName, ticketCount, _location, _price, true, _eventCount);                                                                                                                                                                                                                                                                                                                                                                                                       
+        tickets[ticketCount] = Ticket(_ticketOwner, _eventName, ticketCount, _location, _price, true, _eventCount, _eventDate);                                                                                                                                                                                                                                                                                                                                                                                                       
     }
     
-    function createEvent(string memory _eventName, string memory _location, uint _numAvail, uint _price) public {
+    function createEvent(string memory _eventName, string memory _location, uint _numAvail, uint _price, string memory _eventDate) public {
         //Check that no events with the same name already exist
         for (uint i = 0; i < eventCount; i++) {
             require(keccak256(abi.encodePacked(events[i].eventName)) != keccak256(abi.encodePacked(_eventName)));
         }
         eventCount++;
-        events[eventCount] = Event(msg.sender, _eventName, _location, _price, _numAvail);
+        events[eventCount] = Event(msg.sender, _eventName, _location, _price, _numAvail, _eventDate);
         for (uint i = 0; i < _numAvail; i++) {
-            addTicket(msg.sender, _eventName, _location, _price, eventCount);
+            addTicket(msg.sender, _eventName, _location, _price, eventCount, _eventDate);
         }
     }
 
@@ -85,8 +82,8 @@ contract Ticketing {
     
     constructor() public {
         owner = msg.sender;
-        createEvent("initEvent", "Toronto", 2, 88888888);
-        createEvent("secondEvent", "Toronto", 2, 88888888);
+        createEvent("initEvent", "Toronto", 2, 88888888, "Jan 1, 2018");
+        createEvent("secondEvent", "Toronto", 2, 88888888, "Jan 1, 2018");
     }
     
     function endContract() public {

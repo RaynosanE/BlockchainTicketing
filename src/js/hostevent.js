@@ -80,6 +80,7 @@ App = {
 	},
 	
 	//Create event
+	//Retrieves included parameters from HTML page, uses them as input for the contract's createEvent function
 	hostEvent: function() {
 		var eventName = $('#eventName').val();
 		var location = $('#location').val();
@@ -96,38 +97,6 @@ App = {
 			console.error(err);
 		});
 	}
-	/*
-	viewTickets: function() {
-		App.contracts.Ticketing.deployed().then(function(instance) {
-			ticketingInstance = instance;
-			instance.myTickets();
-			return instance.numMyTickets();
-		}).then(function(numMyTickets) {
-			var myTickets = $("#myTickets");
-			myTickets.empty();
-			
-			var myTicketsTemplate ="<table class=\"table\"> <thead><tr><th scope=\"col\">Event</th><th scope=\"col\">Location</th><th scope=\"col\">Ticket Number</th><th scope=\"col\">Price (in Wei)</th><th scope=\"col\"></th></tr></thead><tbody id=\"myTickets\"></tbody></table>"
-
-			
-			for (var i=1; i <= numMyTickets; i++) {
-				ticketingInstance.ownedTickets(i).then(function(ticket) {
-					var eventName = ticket[1];
-					var location = ticket[3];
-					var ticketCount = ticket[2];
-					var price = ticket[4];
-					
-					//Render event result
-					var myTicketsTemplate = "<tr><th>"  + eventName + "</th><td>" + location + "</td><td>" + ticketCount + "</td><td>" + price + "</td><td>"
-					myTicketsTemplate += "<button type=\"button\" onclick=\"alert('Functionality under construction!')\">Sell Now!</button></td></tr>";
-					myTickets.append(myTicketsTemplate);
-				});
-			}
-			$("#content").hide();
-			$("#loader").show();
-		}).catch(function(err) {
-			console.error(err);
-		});
-	}*/
 };
 
 $(function() {

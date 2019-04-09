@@ -63,12 +63,13 @@ App = {
 						var eventName = ticket[1];
 						var ticketCount = ticket[2]
 						var location = ticket[3];
+						var eventDate = ticket[7];
 						var price = ticket[4];
 						var avail = ticket[5];
 						var numEvent = ticket[6];
 						
 						//Render event result
-						var myTicketsTemplate = "<tr><th>"  + eventName + "</th><td>" + location + "</td><td>" + price;
+						var myTicketsTemplate = "<tr><th>"  + eventName + "</th><td>" + location + "</td><td>" + eventDate + "</td><td>" + price;
 						if (avail == false) {
 							myTicketsTemplate += "</td><td> <button type=\"button\" onclick=\"App.sell("+ ticketCount + ", " + numEvent + "); return false;\">Sell Now!</button></td></tr>"
 						} else {

@@ -102,7 +102,8 @@ App = {
 			console.error(err);
 		});
 	},
-	
+	//Sell function
+	//Retrieves user's ticket data, uses this data as input for the contract's sell function
 	sell: function(ticketCount, numEvent) {
 		App.contracts.Ticketing.deployed().then(function(instance) {
 			return instance.sell(ticketCount, numEvent, {from: App.account});
@@ -113,6 +114,7 @@ App = {
 			console.error(err);
 		});
 	}
+	//Buy function is not being used, thus is commented out
 	/*
 	buy: function() {
 		App.contracts.Ticketing.deployed().then(function(instance) {

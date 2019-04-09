@@ -59,15 +59,16 @@ App = {
 				ticketingInstance.events(j).then(function(event) {
 					var eventName = event[1];
 					var location = event[2];
+					var eventDate = event[5];
 					var price = event[3];
 					var numAvail = event[4];
 					
 					//Render event result
-					var eventTemplate = "<tr><th>"  + eventName + "</th><td>" + location + "</td><td>" + price + "</td><td>"
+					var eventTemplate = "<tr><th>"  + eventName + "</th><td>" + location + "</td><td>" + "</td><td>" + eventDate + "</td><td>" + price + "</td><td>"
 					if (numAvail > 0) {
 						eventTemplate += numAvail + "</td><td> <button type=\"button\" onclick=\"App.buy('" + eventName + "', " + price + "); return false;\">Buy Now!</button></td></tr>"
 					} else {
-						eventTemplate += numAvail + "</td><td>Unavailable!</td></tr>"
+						eventTemplate += numAvail + "</td><td>Sold Out!</td></tr>"
 					}
 					eventResults.append(eventTemplate);
 				});

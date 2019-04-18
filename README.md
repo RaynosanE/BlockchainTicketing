@@ -6,6 +6,8 @@ Due to its decentralized nature, this project may also be termed as a full-stack
 
 For the purposes of marking, one should follow the following instructions in order to test the deployed DApp through its private blockchain.
 
+*****EDIT: The following information is outdated to ensure system security, but the same process applies if you wish to try this yourself; Simply download MetaMask and create your own MetaMask wallet, use these credentials in accessing your blockchain application*****
+
 1. Install MetaMask extension onto the browser of your choice
 
 2. Log into MetaMask using the following wallet mneumonic: 

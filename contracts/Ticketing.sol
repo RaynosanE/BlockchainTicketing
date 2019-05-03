@@ -119,8 +119,8 @@ contract Ticketing {
     //Constructor initialized with two events, for testing purposes
     constructor() public {
         owner = msg.sender;
-        createEvent("initEvent", "Toronto", 2, 88888888, "Jan 1, 2018");
-        createEvent("secondEvent", "Toronto", 2, 88888888, "Jan 1, 2018");
+        createEvent("Official Event", "Toronto", 2, 88888888, "Jan 1, 2018");
+        createEvent("Awesome Outing", "Toronto", 2, 88888888, "Jan 1, 2018");
     }
     
     //Selfdestruct function, which can only be used by the contract owner
